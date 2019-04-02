@@ -1,41 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package push;
 
-package jurnal1;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
-public class JURNAL1 {
 
-  
-    public static void main(String[] args) throws IOException {
-        
-        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in));
-        String inputangka ;
-                
-        int angka = 0;
-        int a = 1;
-        int b = 1;
-        int c;
-        int i;
-        
-        System.out.println("Bilangan Fibonacci");
-        System.out.print("Input : " );
-        try {
-            inputangka = dataInput.readLine();
-            angka = Integer.parseInt(inputangka);
-        } catch (NumberFormatException error) {
-            System.out.println("Error !!");
-        }
-        System.out.print("Output : " + a + " " + b + " ");
-        for (i = 0; i < angka - 2; i++) {
-            c = a + b;
-            System.out.print(c + " ");
-            a = b;
-            b = c;
-        }
-        System.out.println("");
-    }
-}
+public class Push {
     
+      static int calculateSum(int n) 
+    { 
+        if (n <= 0) 
+           return 0; 
+        int fibo[]=new int[n+1]; 
+        fibo[0] = 0; fibo[1] = 1; 
+       
+        // Initialize result 
+        int sum = fibo[0] + fibo[1]; 
+       
+        // Add remaining terms 
+        for (int i=2; i<=n; i++) 
+        { 
+            fibo[i] = fibo[i-1]+fibo[i-2]; 
+            sum += fibo[i]; 
+        }
+        return sum; 
+    } 
+
+    public static void main(String[] args) {
+
+           int n = 0;
+            Scanner scan = new Scanner(System.in);
+            System.out.print("input: ");
+            n = scan.nextInt();
+            
+            System.out.println(" ");
+            System.out.println(calculateSum(n));
+            System.out.println(" ");
+    }
+    
+}
